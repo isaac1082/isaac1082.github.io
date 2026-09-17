@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="이이삭의 개인 소개 페이지">
+  <title>이이삭 | Personal Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="처음으로 이동">Lee isaac<span>.</span></a>
+      <nav class="nav" aria-label="페이지 메뉴">
+        <a href="#about">소개</a>
+        <a href="#interests">관심사</a>
+        <a href="#contact">연락처</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <p class="eyebrow">PERSONAL PROFILE <span>/ 2026</span></p>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <h1 id="hero-title" aria-label="안녕하세요, 이이삭입니다."><span class="typing-greeting"></span><br><span class="typing-name"></span><span class="typing-ending"></span><span class="typing-cursor" aria-hidden="true"></span></h1>
+          <p class="english-name">Lee isaac</p>
+          <div class="hero-bottom">
+            <p class="intro">안녕하세요 저는 06년생 이이삭입니다</p>
+            <p class="hero-note">기계와 기술이 만나는 지점을<br>천천히, 즐겁게 탐구하고 있습니다.</p>
+          </div>
+        </div>
+        <figure class="profile-photo">
+          <img src="profile.jpg" alt="이이삭 프로필 사진">
+        </figure>
+      </div>
+    </section>
+
+    <section class="content-grid" id="about" aria-label="소개 정보">
+      <article class="info-block affiliation">
+        <p class="label">AFFILIATION</p>
+        <h2>국립공주대학교<br>기계자동차공학부</h2>
+        <p class="muted">Mechanical &amp; Automotive Engineering</p>
+      </article>
+
+      <article class="info-block education-block">
+        <p class="label">FROM / EDUCATION</p>
+        <h2>충남 아산</h2>
+        <p class="muted">아산중학교 · 아산고등학교</p>
+      </article>
+
+      <article class="info-block" id="interests">
+        <p class="label">INTERESTS</p>
+        <ul class="tag-list" aria-label="관심 분야">
+          <li><span aria-hidden="true">🚗</span> 자동차</li>
+          <li><span aria-hidden="true">🛰️</span> 자율주행</li>
+          <li><span aria-hidden="true">💻</span> IT</li>
+        </ul>
+      </article>
+
+      <article class="info-block course-block">
+        <p class="label">CURRENT CLASS</p>
+        <h2>미래첨단기술의이해 I</h2>
+        <p class="muted">Learning how tomorrow's technology moves.</p>
+      </article>
+
+      <aside class="contact-block" id="contact" aria-labelledby="contact-title">
+        <p class="label">SAY HELLO</p>
+        <h2 id="contact-title">연락하고 싶다면</h2>
+        <div class="contact-links">
+          <a href="mailto:gdjsokcw@naver.com">gdjsokcw@naver.com <span aria-hidden="true">↗</span></a>
+          <a href="https://isaac1082.github.io" target="_blank" rel="noreferrer">isaac1082.github.io <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="site-footer">
+      <span>© 2026 이이삭</span>
+      <span>Made with curiosity.</span>
+    </footer>
+  </main>
+  <script>
+    const typingParts = [
+      { element: document.querySelector('.typing-greeting'), text: '안녕하세요,' },
+      { element: document.querySelector('.typing-name'), text: '이이삭' },
+      { element: document.querySelector('.typing-ending'), text: '입니다.' }
+    ];
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reducedMotion) {
+      typingParts.forEach((part) => {
+        part.element.textContent = part.text;
+      });
+    } else {
+      let characterIndex = 0;
+      typingParts.forEach((part) => {
+        part.text.split('').forEach((character) => {
+          window.setTimeout(() => {
+            part.element.textContent += character;
+          }, characterIndex * 120 + 450);
+          characterIndex += 1;
+        });
+      });
+    }
+  </script>
+</body>
+</html>
